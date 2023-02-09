@@ -1,0 +1,48 @@
+.wrapper {
+    width: 500px;
+    margin: 30px auto 0;
+    position: relative;
+}
+
+.logo {
+    cursor: pointer;
+}
+
+.wrapper {
+    h4 {
+        font-size: 1.7rem;
+        font-weight: 500;
+        padding-bottom: 50px;
+    }
+    p {
+        padding-top: 50px;
+        width: 85%;
+    }
+    a {
+        color: #000;
+        text-decoration: underline;
+    }
+}
+
+.form input {
+    width: 100%;
+    padding: 20px 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+.wrapper button {
+    position: absolute;
+    color: #fff;
+    padding: 15px 30px;
+    border-radius: 30px;
+    font-size: 1rem;
+    background-color: #000;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    margin-top: 50px;
+    right: 0;
+    &:hover {
+        background-color: #aaa;
+    }
+}
