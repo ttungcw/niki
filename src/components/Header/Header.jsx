@@ -70,14 +70,14 @@ function Header() {
             setY(window.scrollY);
         });
     };
+    scroll();
     useEffect(() => {
-        scroll();
         if (y - prevY > 0 && y >= 70) {
             setSticky('none');
         } else {
             setSticky('flex');
         }
-    }, [y]);
+    }, [y, prevY]);
 
     // navigate
     const navigate = useNavigate();
