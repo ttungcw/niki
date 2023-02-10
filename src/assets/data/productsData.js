@@ -381,6 +381,5 @@ const products = [
         productType: 'Customize your so-you shoe',
         price: false,
     },
-    ,
 ];
 export default products;
