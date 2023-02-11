@@ -21,7 +21,7 @@ function CartItem({ item }) {
                 <div className={cx('des')}>
                     <p className={cx('name')}>{item.productName}</p>
                     <p className={cx('type')}>{item.productType}</p>
-                    <p className={cx('quantity')}>{item.quantity}</p>
+                    <p className={cx('quantity')}>Quantity: {item.quantity}</p>
                     <div className={cx('icons')}>
                         <div className={cx('icon')}>
                             <i className="ri-heart-line"></i>
