@@ -8,6 +8,7 @@ import { cart, totalAmount } from '../../redux/selectors';
 import CartItem from './CartItem';
 import list from '../../assets/data/shopData';
 import Popular from '../Home/Popular/Popular';
+import Helmet from '../../components/Helmet/Helmet';
 
 const cx = classNames.bind(styles);
 function Cart() {
@@ -20,56 +21,57 @@ function Cart() {
         (item) => item.price < 200 && item.price > 100,
     );
     return (
-        <section>
-            <div className={cx('container')}>
-                <div className={cx('info')}>
-                    <div className={cx('title')}>
-                        <h4>Free Shipping for Members</h4>
-                        <p>
-                            Become a Nike Member for fast and free shipping.{' '}
-                            <Link>Join us</Link> or{' '}
-                            <Link to="/login">Sign-in</Link>
-                        </p>
+        <Helmet title="Niki - Cart">
+            <section>
+                <div className={cx('container')}>
+                    <div className={cx('info')}>
+                        <div className={cx('title')}>
+                            <h4>Free Shipping for Members</h4>
+                            <p>
+                                Become a Nike Member for fast and free shipping.{' '}
+                                <Link>Join us</Link> or{' '}
+                                <Link to="/login">Sign-in</Link>
+                            </p>
+                        </div>
+                        <h3>Bag</h3>
+                        {cartItems.length ? (
+                            <ul>
+                                {cartItems.map((item) => {
+                                    return (
+                                        <li key={item.id}>
+                                            <CartItem item={item} />
+                                        </li>
+                                    );
+                                })}
+                            </ul>
+                        ) : (
+                            <p>There are no items in your bag.</p>
+                        )}
                     </div>
-                    <h3>Bag</h3>
-                    {cartItems.length ? (
-                        <ul>
-                            {cartItems.map((item) => {
-                                return (
-                                    <li key={item.id}>
-                                        <CartItem item={item} />
-                                    </li>
-                                );
-                            })}
-                        </ul>
-                    ) : (
-                        <p>There are no items in your bag.</p>
-                    )}
+                    <div className={cx('summary')}>
+                        <h4>Summary</h4>
+                        <div className={cx('subtotal')}>
+                            <p>Subtotal</p>
+                            <p>${totalPrice}</p>
+                        </div>
+                        <div className={cx('shipping')}>
+                            <p>Estimated Shipping & Handling:</p>
+                            <p>$0</p>
+                        </div>
+                        <div className={cx('total')}>
+                            <p>Total:</p>
+                            <p>${totalPrice}</p>
+                        </div>
+                        <button className={cx('btn-checkout')}>Checkout</button>
+                        <button className={cx('btn-paypal')}>PayPal</button>
+                    </div>
                 </div>
-                <div className={cx('summary')}>
-                    <h4>Summary</h4>
-                    <div className={cx('subtotal')}>
-                        <p>Subtotal</p>
-                        <p>${totalPrice}</p>
-                    </div>
-                    <div className={cx('shipping')}>
-                        <p>Estimated Shipping & Handling:</p>
-                        <p>$0</p>
-                    </div>
-
-                    <div className={cx('total')}>
-                        <p>Total:</p>
-                        <p>${totalPrice}</p>
-                    </div>
-                    <button className={cx('btn-checkout')}>Checkout</button>
-                    <button className={cx('btn-paypal')}>PayPal</button>
+                <div>
+                    <h5 className={cx('related')}>You Might Also Like</h5>
+                    <Popular data={relatedData} />
                 </div>
-            </div>
-            <div>
-                <h5 className={cx('related')}>You Might Also Like</h5>
-                <Popular data={relatedData} />
-            </div>
-        </section>
+            </section>
+        </Helmet>
     );
 }
 

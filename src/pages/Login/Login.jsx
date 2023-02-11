@@ -1,6 +1,7 @@
 import React from 'react';
 import classNames from 'classnames/bind';
 import { Link, useNavigate } from 'react-router-dom';
+import Helmet from '../../components/Helmet/Helmet';
 
 import styles from './Login.module.scss';
 const cx = classNames.bind(styles);

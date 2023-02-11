@@ -41,16 +41,32 @@ function Footer() {
                     <Link>Sustainability</Link>
                 </div>
                 <div className={cx('socials')}>
-                    <a href="https://twitter.com/" target="_blank">
+                    <a
+                        href="https://twitter.com/"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
                         <i className="ri-twitter-fill"></i>
                     </a>
-                    <a href="https://facebook.com/" target="_blank">
+                    <a
+                        href="https://facebook.com/"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
                         <i className="ri-facebook-fill"></i>
                     </a>
-                    <a href="https://youtube.com/" target="_blank">
+                    <a
+                        href="https://youtube.com/"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
                         <i className="ri-youtube-fill"></i>
                     </a>
-                    <a href="https://instagram.com/" target="_blank">
+                    <a
+                        href="https://instagram.com/"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
                         <i className="ri-instagram-fill"></i>
                     </a>
                 </div>
