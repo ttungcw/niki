@@ -10,6 +10,7 @@ import list from '../../assets/data/shopData';
 import { cart } from '../../redux/selectors';
 import Arrow from '../../components/UI/Arrow/Arrow';
 import styles from './ProductDetail.module.scss';
+import Helmet from '../../components/Helmet/Helmet';
 const cx = classNames.bind(styles);
 
 function ProductDetail() {
@@ -63,7 +64,7 @@ function ProductDetail() {
         setShowModal('block');
     };
     return (
-        <div>
+        <Helmet title="Niki - Product Detail">
             <section>
                 <div className={cx('wrapper')}>
                     <div className={cx('images')}>
@@ -213,7 +214,7 @@ function ProductDetail() {
                     <h6>Signup for free.</h6>
                 </div>
             </div>
-        </div>
+        </Helmet>
     );
 }
 
