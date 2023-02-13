@@ -28,7 +28,7 @@ function Header() {
     const [searchValue, setSearchValue] = useState('');
 
     const searchList = list.filter((item) =>
-        item.productName.includes(searchValue),
+        item.productName.toLowerCase().includes(searchValue.toLowerCase()),
     );
 
     let style = {
