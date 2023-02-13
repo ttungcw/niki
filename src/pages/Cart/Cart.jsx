@@ -9,6 +9,7 @@ import CartItem from './CartItem';
 import list from '../../assets/data/shopData';
 import Popular from '../Home/Popular/Popular';
 import Helmet from '../../components/Helmet/Helmet';
+import { useNavigate } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 function Cart() {
@@ -20,6 +21,10 @@ function Cart() {
     const relatedData = list.filter(
         (item) => item.price < 200 && item.price > 100,
     );
+    const navigate = useNavigate();
+    const navigateToSignup = () => {
+        navigate('/login');
+    };
     return (
         <Helmet title="Niki - Cart">
             <section>
@@ -62,7 +67,12 @@ function Cart() {
                             <p>Total:</p>
                             <p>${totalPrice}</p>
                         </div>
-                        <button className={cx('btn-checkout')}>Checkout</button>
+                        <button
+                            className={cx('btn-checkout')}
+                            onClick={navigateToSignup}
+                        >
+                            Checkout
+                        </button>
                         <button className={cx('btn-paypal')}>PayPal</button>
                     </div>
                 </div>
