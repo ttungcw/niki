@@ -9,6 +9,8 @@ import styles from './Header.module.scss';
 
 import popularSearch from '../../assets/data/popularSearch';
 import { cart } from '../../redux/selectors';
+import Popular from '../../pages/Home/Popular/Popular';
+import list from '../../assets/data/shopData';
 
 const cx = classNames.bind(styles);
 
@@ -23,6 +25,11 @@ function Header() {
     const [btn, setBtn] = useState('none');
     const [icons, setIcons] = useState('block');
     const [nav, setNav] = useState('flex');
+    const [searchValue, setSearchValue] = useState('');
+
+    const searchList = list.filter((item) =>
+        item.productName.includes(searchValue),
+    );
 
     let style = {
         display: sticky,
@@ -55,7 +62,7 @@ function Header() {
         setNav('none');
     };
 
-    const handleModal = (e) => {
+    const handleModal = () => {
         setModal('none');
         setWidthSearch('17%');
         setPdSearch('200px');
@@ -129,6 +136,7 @@ function Header() {
                         className={cx('abc')}
                         type="text"
                         placeholder="Search"
+                        onChange={(e) => setSearchValue(e.target.value)}
                     />
                 </div>
                 <div className={cx('wishlist')} style={styleIcons}>
@@ -156,14 +164,24 @@ function Header() {
                     className={cx('modal')}
                     onClick={(e) => e.stopPropagation()}
                 >
-                    <div className={cx('content')}>
-                        <h3>Popular Search Terms</h3>
-                        {popularSearch.map((item, index) => (
-                            <Link key={index} to="/shop">
-                                {item}
-                            </Link>
-                        ))}
-                    </div>
+                    {searchValue.length === 0 ? (
+                        <div className={cx('content')}>
+                            <h3>Popular Search Terms</h3>
+                            {popularSearch.map((item, index) => (
+                                <Link key={index} to="/shop">
+                                    {item}
+                                </Link>
+                            ))}
+                        </div>
+                    ) : (
+                        <div className={cx('products')}>
+                            {searchList.length ? (
+                                <Popular data={searchList} />
+                            ) : (
+                                <p>ko co san pham</p>
+                            )}
+                        </div>
+                    )}
                 </div>
                 <button className={cx('close__btn')} style={styleBtn}>
                     Cancel
